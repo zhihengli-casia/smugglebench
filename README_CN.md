@@ -16,13 +16,6 @@ Zhiheng Li, Zongyang Ma, Yuntong Pan, Ziqi Zhang, Xiaolei Lv, Bo Li, Jun Gao, Ji
 </p>
 
 <p>
-  <img src="https://img.shields.io/badge/Benchmark-SMUGGLEBENCH-0F766E" alt="Benchmark badge" />
-  <img src="https://img.shields.io/badge/Samples-1.7K-2563EB" alt="Sample count badge" />
-  <img src="https://img.shields.io/badge/Pathways-2-D97706" alt="Pathway badge" />
-  <img src="https://img.shields.io/badge/Techniques-9-475569" alt="Technique badge" />
-</p>
-
-<p>
   本仓库是 ACL 2026 论文 <strong>Making MLLMs Blind: Adversarial Smuggling Attacks in MLLM Content Moderation</strong> 的官方代码与基准发布页。
 </p>
 
