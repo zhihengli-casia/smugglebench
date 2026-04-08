@@ -1,0 +1,57 @@
+cff-version: 1.2.0
+message: "If you use SmuggleBench, please cite the paper and the repository metadata below."
+title: "SmuggleBench"
+type: software
+authors:
+  - family-names: Li
+    given-names: Zhiheng
+  - family-names: Ma
+    given-names: Zongyang
+  - family-names: Pan
+    given-names: Yuntong
+  - family-names: Zhang
+    given-names: Ziqi
+  - family-names: Lv
+    given-names: Xiaolei
+  - family-names: Li
+    given-names: Bo
+  - family-names: Gao
+    given-names: Jun
+  - family-names: Zhang
+    given-names: Jianing
+  - family-names: Yuan
+    given-names: Chunfeng
+  - family-names: Li
+    given-names: Bing
+  - family-names: Hu
+    given-names: Weiming
+year: 2026
+license: "CC-BY-4.0"
+preferred-citation:
+  type: article
+  title: "Making MLLMs Blind: Adversarial Smuggling Attacks in MLLM Content Moderation"
+  authors:
+    - family-names: Li
+      given-names: Zhiheng
+    - family-names: Ma
+      given-names: Zongyang
+    - family-names: Pan
+      given-names: Yuntong
+    - family-names: Zhang
+      given-names: Ziqi
+    - family-names: Lv
+      given-names: Xiaolei
+    - family-names: Li
+      given-names: Bo
+    - family-names: Gao
+      given-names: Jun
+    - family-names: Zhang
+      given-names: Jianing
+    - family-names: Yuan
+      given-names: Chunfeng
+    - family-names: Li
+      given-names: Bing
+    - family-names: Hu
+      given-names: Weiming
+  year: 2026
+  journal: "ACL 2026 submission"
