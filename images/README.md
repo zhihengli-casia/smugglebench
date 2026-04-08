@@ -10,6 +10,6 @@ images/<category>/<subcategory>/positive/<filename>
 
 说明：
 
-- 公开版 SmuggleBench 只包含违规样本。
-- 为兼容已有标注文件，路径中仍保留 `positive/` 这一历史目录名。
+- 为兼容当前标注文件，路径中仍保留 `positive/` 这一历史目录名。
+- 这里的 `positive/` 是发布结构的一部分，并非要求额外提供其他对照目录。
 - `annotations/*.jsonl` 中的 `image_path` 默认采用这一相对路径格式。

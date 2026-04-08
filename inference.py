@@ -96,6 +96,8 @@ def iter_tasks(annotations_root: Path) -> list[dict[str, str]]:
         if len(manifest_path.parts) < 4:
             continue
         label = manifest_path.parent.name
+        if label != "positive":
+            continue
         subcategory = manifest_path.parent.parent.name
         category = manifest_path.parent.parent.parent.name
         with manifest_path.open("r", encoding="utf-8") as handle:
