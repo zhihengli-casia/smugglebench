@@ -19,9 +19,9 @@ Zhiheng Li, Zongyang Ma, Yuntong Pan, Ziqi Zhang, Xiaolei Lv, Bo Li, Jun Gao, Ji
 
 <p>
   <a href="README_CN.md">简体中文</a> |
+  <a href="https://huggingface.co/datasets/zhihengli-casia/smugglebench">Hugging Face</a> |
   <a href="#overview">Overview</a> |
   <a href="#release-contents">Code</a> |
-  <a href="#citation">Citation</a> |
   <a href="#license">License</a>
 </p>
 
@@ -108,7 +108,9 @@ This repository is organized as the project homepage and code release for the pa
 - `scripts/build_hf_dataset.py`: utility for exporting the Hugging Face dataset package.
 - `scripts/rewrite_annotations.py`: utility for rewriting annotation paths into public-release format.
 
-The full image release is prepared as a separate Hugging Face package and can be linked here once the public dataset page is online.
+The full image release is available on Hugging Face:
+
+- [SMUGGLEBENCH on Hugging Face](https://huggingface.co/datasets/zhihengli-casia/smugglebench)
 
 ## Quick Start
 
@@ -119,21 +121,6 @@ pip install -r requirements.txt
 ```
 
 If you have access to the released images, place them under `images/` using the relative paths referenced in the annotations.
-
-## Citation
-
-If you find this project useful, please cite our paper:
-
-```bibtex
-@inproceedings{li2026making,
-  title={Making MLLMs Blind: Adversarial Smuggling Attacks in MLLM Content Moderation},
-  author={Li, Zhiheng and Ma, Zongyang and Pan, Yuntong and Zhang, Ziqi and Lv, Xiaolei and Li, Bo and Gao, Jun and Zhang, Jianing and Yuan, Chunfeng and Li, Bing and Hu, Weiming},
-  booktitle={Proceedings of ACL 2026},
-  year={2026}
-}
-```
-
-Citation metadata is also available in [CITATION.cff](CITATION.cff).
 
 ## License
 

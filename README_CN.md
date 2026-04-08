@@ -19,9 +19,9 @@ Zhiheng Li, Zongyang Ma, Yuntong Pan, Ziqi Zhang, Xiaolei Lv, Bo Li, Jun Gao, Ji
 
 <p>
   <a href="README.md">English</a> |
+  <a href="https://huggingface.co/datasets/zhihengli-casia/smugglebench">Hugging Face</a> |
   <a href="#概述">概述</a> |
   <a href="#仓库内容">代码</a> |
-  <a href="#引用">引用</a> |
   <a href="#许可证">许可证</a>
 </p>
 
@@ -108,7 +108,9 @@ ASA 主要通过两种方式破坏多模态内容审核：
 - `scripts/build_hf_dataset.py`：导出 Hugging Face 数据集包的脚本。
 - `scripts/rewrite_annotations.py`：将标注路径整理为公开发布格式的脚本。
 
-完整图片数据已经整理为单独的 Hugging Face 数据集包，后续可在这里补充公开链接。
+完整图片数据已经发布在 Hugging Face：
+
+- [SMUGGLEBENCH on Hugging Face](https://huggingface.co/datasets/zhihengli-casia/smugglebench)
 
 ## 快速开始
 
@@ -119,21 +121,6 @@ pip install -r requirements.txt
 ```
 
 如果你拥有公开发布的图片数据，请按照标注文件中的相对路径，将图片放置到 `images/` 目录下。
-
-## 引用
-
-如果这个项目对你的研究有帮助，欢迎引用我们的论文：
-
-```bibtex
-@inproceedings{li2026making,
-  title={Making MLLMs Blind: Adversarial Smuggling Attacks in MLLM Content Moderation},
-  author={Li, Zhiheng and Ma, Zongyang and Pan, Yuntong and Zhang, Ziqi and Lv, Xiaolei and Li, Bo and Gao, Jun and Zhang, Jianing and Yuan, Chunfeng and Li, Bing and Hu, Weiming},
-  booktitle={Proceedings of ACL 2026},
-  year={2026}
-}
-```
-
-更规范的引用元数据也可以直接参考 [CITATION.cff](CITATION.cff)。
 
 ## 许可证
 
