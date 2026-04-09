@@ -14,7 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     >
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=20260409d">
   </head>
   <body>
     <div class="page-shell">
@@ -203,13 +203,10 @@
 
             <div class="showcase-shell">
               <div class="showcase-copy">
-                <p class="showcase-overline" id="case-pathway"></p>
+                <p class="showcase-overline" id="case-category"></p>
                 <h3 id="case-title"></h3>
                 <p class="showcase-description" id="case-description"></p>
-                <div class="showcase-meta">
-                  <span class="case-category-line" id="case-category"></span>
-                  <span class="case-counter-line" id="case-counter"></span>
-                </div>
+                <p class="showcase-meta" id="case-meta-line"></p>
               </div>
 
               <div class="showcase-visual">
@@ -468,9 +465,8 @@
       const prevCaseButton = document.getElementById('prev-case');
       const nextCaseButton = document.getElementById('next-case');
       const caseImage = document.getElementById('case-image');
-      const casePathway = document.getElementById('case-pathway');
-      const caseCounter = document.getElementById('case-counter');
       const caseCategory = document.getElementById('case-category');
+      const caseMetaLine = document.getElementById('case-meta-line');
       const caseTitle = document.getElementById('case-title');
       const caseDescription = document.getElementById('case-description');
       const caseThumbStrip = document.getElementById('case-thumb-strip');
@@ -484,9 +480,8 @@
 
         caseImage.src = item.src;
         caseImage.alt = `${category.label} case`;
-        casePathway.textContent = category.pathway;
-        caseCounter.textContent = `${currentCase + 1} of ${category.cases.length}`;
         caseCategory.textContent = category.label;
+        caseMetaLine.textContent = `${category.pathway} · ${currentCase + 1} of ${category.cases.length}`;
         caseTitle.textContent = item.title;
         caseDescription.textContent = item.description;
 

@@ -389,6 +389,8 @@ h3 {
 }
 
 .case-browser {
+  width: min(100%, 1040px);
+  margin: 0 auto;
   padding: 26px;
   border: 1px solid var(--line);
   border-radius: calc(var(--radius-xl) + 4px);
@@ -401,18 +403,18 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
-  margin-bottom: 20px;
+  gap: 8px;
+  margin-bottom: 18px;
 }
 
 .category-tab {
-  min-height: 40px;
-  padding: 0 15px;
+  min-height: 36px;
+  padding: 0 13px;
   border: 1px solid rgba(32, 24, 14, 0.1);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.68);
   color: var(--ink);
-  font-size: 0.96rem;
+  font-size: 0.88rem;
   font-weight: 700;
   cursor: pointer;
   transition: background 180ms ease, transform 180ms ease, border-color 180ms ease;
@@ -430,63 +432,42 @@ h3 {
 
 .showcase-shell {
   display: grid;
-  grid-template-columns: minmax(260px, 0.9fr) minmax(0, 1.1fr);
-  gap: 26px;
+  grid-template-columns: minmax(250px, 0.82fr) minmax(0, 1fr);
+  gap: 22px;
   align-items: center;
-  margin-bottom: 18px;
+  margin-bottom: 14px;
 }
 
 .showcase-copy {
-  max-width: 420px;
+  max-width: 360px;
 }
 
 .showcase-overline {
   margin: 0;
   color: var(--accent-red);
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .showcase-copy h3 {
-  margin-top: 10px;
-  font-size: clamp(1.7rem, 2.4vw, 2.5rem);
+  margin-top: 8px;
+  font-size: clamp(1.5rem, 2vw, 2.1rem);
 }
 
 .showcase-description {
-  margin: 14px 0 0;
+  margin: 12px 0 0;
   color: var(--muted);
-  font-size: 1.05rem;
-  line-height: 1.7;
+  font-size: 0.98rem;
+  line-height: 1.65;
 }
 
 .showcase-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 20px;
-}
-
-.case-category-line,
-.case-counter-line {
-  display: inline-flex;
-  align-items: center;
-  min-height: 34px;
-  padding: 0 12px;
-  border-radius: 999px;
-  font-size: 0.88rem;
-  font-weight: 800;
-}
-
-.case-category-line {
-  background: rgba(15, 118, 110, 0.1);
-  color: var(--accent-teal);
-}
-
-.case-counter-line {
-  background: rgba(36, 87, 214, 0.08);
-  color: var(--accent-blue);
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 700;
 }
 
 .showcase-visual {
@@ -496,7 +477,7 @@ h3 {
 .case-thumb-strip {
   display: flex;
   justify-content: center;
-  gap: 12px;
+  gap: 10px;
   margin: 0 auto;
 }
 
@@ -521,8 +502,8 @@ h3 {
 }
 
 .thumb-card img {
-  width: 110px;
-  height: 72px;
+  width: 88px;
+  height: 58px;
   object-fit: cover;
   background: #fff;
 }
@@ -530,13 +511,13 @@ h3 {
 .stage-arrow {
   position: absolute;
   top: 50%;
-  width: 42px;
-  height: 42px;
+  width: 38px;
+  height: 38px;
   border: 0;
   border-radius: 999px;
   background: rgba(23, 23, 23, 0.78);
   color: #fff;
-  font-size: 1.6rem;
+  font-size: 1.35rem;
   line-height: 1;
   cursor: pointer;
   transition: transform 180ms ease, background 180ms ease, opacity 180ms ease;
@@ -549,22 +530,22 @@ h3 {
 }
 
 .stage-arrow-left {
-  left: 12px;
+  left: 10px;
   transform: translateY(-50%);
 }
 
 .stage-arrow-right {
-  right: 12px;
+  right: 10px;
   transform: translateY(-50%);
 }
 
 .stage-frame {
-  width: min(100%, 640px);
-  min-height: 340px;
+  width: min(100%, 560px);
+  min-height: 300px;
   margin: 0 auto;
-  padding: 14px;
+  padding: 12px;
   border: 1px solid rgba(32, 24, 14, 0.1);
-  border-radius: 24px;
+  border-radius: 20px;
   background:
     radial-gradient(circle at top left, rgba(15, 118, 110, 0.08), transparent 28%),
     radial-gradient(circle at bottom right, rgba(217, 119, 6, 0.1), transparent 26%),
@@ -574,9 +555,9 @@ h3 {
 
 .stage-frame img {
   width: 100%;
-  height: 310px;
+  height: 260px;
   object-fit: contain;
-  border-radius: 16px;
+  border-radius: 14px;
   background: #fff;
 }
 
@@ -664,6 +645,7 @@ h3 {
 
   .showcase-shell {
     grid-template-columns: 1fr;
+    gap: 18px;
   }
 
   .showcase-copy {
@@ -710,17 +692,17 @@ h3 {
   }
 
   .case-browser {
-    padding: 18px;
+    padding: 18px 16px;
   }
 
   .stage-frame {
     width: 100%;
-    min-height: 280px;
-    padding: 12px;
+    min-height: 250px;
+    padding: 10px;
   }
 
   .stage-frame img {
-    height: 240px;
+    height: 220px;
   }
 
   .case-thumb-strip {
@@ -729,8 +711,8 @@ h3 {
   }
 
   .thumb-card img {
-    width: 84px;
-    height: 58px;
+    width: 72px;
+    height: 48px;
   }
 
   .stage-arrow-left {
