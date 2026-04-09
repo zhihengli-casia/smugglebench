@@ -10,6 +10,9 @@ Zhiheng Li, Zongyang Ma, Yuntong Pan, Ziqi Zhang, Xiaolei Lv, Bo Li, Jun Gao, Ji
   <a href="https://arxiv.org/abs/2604.06950">
     <img src="https://img.shields.io/badge/arXiv-2604.06950-B31B1B?logo=arxiv&logoColor=white" alt="arXiv paper" />
   </a>
+  <a href="https://zhihengli-casia.github.io/smugglebench/">
+    <img src="https://img.shields.io/badge/Project-Page-0F766E?logo=googlechrome&logoColor=white" alt="Project page" />
+  </a>
   <a href="https://huggingface.co/datasets/zhihengli-casia/smugglebench">
     <img src="https://img.shields.io/badge/Hugging%20Face-Dataset-F59E0B?logo=huggingface&logoColor=white" alt="Hugging Face dataset" />
   </a>
@@ -25,6 +28,7 @@ Zhiheng Li, Zongyang Ma, Yuntong Pan, Ziqi Zhang, Xiaolei Lv, Bo Li, Jun Gao, Ji
 <p>
   <a href="README_CN.md">简体中文</a> |
   <a href="https://arxiv.org/abs/2604.06950">arXiv</a> |
+  <a href="https://zhihengli-casia.github.io/smugglebench/">Project Page</a> |
   <a href="https://huggingface.co/datasets/zhihengli-casia/smugglebench">Hugging Face</a> |
   <a href="#overview">Overview</a> |
   <a href="#release-contents">Code</a> |
