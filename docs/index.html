@@ -283,6 +283,42 @@
       const copyButton = document.querySelector('[data-copy-target="bibtex-block"]');
       const showcaseData = [
         {
+          key: 'miniature',
+          tabLabel: 'Miniature',
+          label: 'Miniature Text',
+          pathway: 'Perceptual Blindness',
+          cases: [
+            {
+              src: 'assets/showcase/miniature_01.jpg',
+              title: 'Mirror-side micro text',
+              description: 'The payload is compressed into very small local details that remain recoverable to people but fragile for model perception.'
+            },
+            {
+              src: 'assets/showcase/miniature_02.jpg',
+              title: 'Tiny sticker payload',
+              description: 'The message occupies only a tiny visual footprint, reducing salience for OCR and multimodal parsing.'
+            }
+          ]
+        },
+        {
+          key: 'occlusion',
+          tabLabel: 'Occlusion',
+          label: 'Occlusion & Interference',
+          pathway: 'Perceptual Blindness',
+          cases: [
+            {
+              src: 'assets/showcase/occlusion_01.jpg',
+              title: 'Reflective wall embed',
+              description: 'Foreground clutter and reflective texture interfere with reliable extraction while the message remains understandable to humans.'
+            },
+            {
+              src: 'assets/showcase/occlusion_02.jpg',
+              title: 'Pose-and-clutter interference',
+              description: 'Subjects, background patterns, and composition jointly hide the harmful text in visually busy regions.'
+            }
+          ]
+        },
+        {
           key: 'handwritten',
           tabLabel: 'Handwritten',
           label: 'Handwritten Style',
@@ -355,6 +391,24 @@
           ]
         },
         {
+          key: 'multipicture',
+          tabLabel: 'Multi-Picture',
+          label: 'Multi-Picture Camouflage',
+          pathway: 'AI Illusions',
+          cases: [
+            {
+              src: 'assets/showcase/multipicture_01.png',
+              title: 'Composite-image layout',
+              description: 'Multiple generated panels collectively encode the harmful signal while each local view appears ordinary.'
+            },
+            {
+              src: 'assets/showcase/multipicture_02.png',
+              title: 'Scene mosaic camouflage',
+              description: 'The message is distributed across multiple visual elements rather than presented as a single explicit text overlay.'
+            }
+          ]
+        },
+        {
           key: 'steganography',
           tabLabel: 'Steganography',
           label: 'Textual Steganography',
@@ -369,6 +423,24 @@
               src: 'assets/showcase/steganography_02.jpg',
               title: 'Worksheet camouflage',
               description: 'Educational-looking formatting helps the harmful signal blend into a benign document context.'
+            }
+          ]
+        },
+        {
+          key: 'contextual',
+          tabLabel: 'Contextual',
+          label: 'Contextual Camouflage',
+          pathway: 'Reasoning Blockade',
+          cases: [
+            {
+              src: 'assets/showcase/contextual_01.jpg',
+              title: 'Benign context cover',
+              description: 'A harmless-looking context reframes the visible text so that the dangerous intent is easier for humans than for models to recover.'
+            },
+            {
+              src: 'assets/showcase/contextual_02.jpg',
+              title: 'Naturalistic semantic masking',
+              description: 'The text is readable, but the surrounding context steers interpretation away from the true harmful meaning.'
             }
           ]
         },
