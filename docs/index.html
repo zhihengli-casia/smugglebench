@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SmuggleBench | Making MLLMs Blind</title>
+    <meta
+      name="description"
+      content="Official project page for SmuggleBench, the benchmark introduced in 'Making MLLMs Blind: Adversarial Smuggling Attacks in MLLM Content Moderation'."
+    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brandmark" href="#top">SMUGGLEBENCH</a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="#abstract">Abstract</a>
+          <a href="#pathways">Pathways</a>
+          <a href="#benchmark">Benchmark</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#citation">Citation</a>
+        </nav>
+      </header>
+
+      <main id="top">
+        <section class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">ACL 2026 · arXiv:2604.06950</p>
+            <h1>Making MLLMs Blind: Adversarial Smuggling Attacks in MLLM Content Moderation</h1>
+            <p class="hero-lead">
+              Official project page for <strong>SmuggleBench</strong>, a benchmark for studying
+              adversarial smuggling attacks against multimodal content moderation systems.
+            </p>
+
+            <div class="hero-actions">
+              <a class="button button-primary" href="https://arxiv.org/abs/2604.06950">Read Paper</a>
+              <a class="button button-secondary" href="https://huggingface.co/datasets/zhihengli-casia/smugglebench">Dataset</a>
+              <a class="button button-secondary" href="https://github.com/zhihengli-casia/smugglebench">Code</a>
+              <a class="button button-ghost" href="#citation">BibTeX</a>
+            </div>
+
+            <div class="metrics-row">
+              <div class="metric-card">
+                <span class="metric-value">1,700</span>
+                <span class="metric-label">benchmark instances</span>
+              </div>
+              <div class="metric-card">
+                <span class="metric-value">2</span>
+                <span class="metric-label">attack pathways</span>
+              </div>
+              <div class="metric-card">
+                <span class="metric-value">9</span>
+                <span class="metric-label">paper-level techniques</span>
+              </div>
+              <div class="metric-card">
+                <span class="metric-value">&gt;90%</span>
+                <span class="metric-label">ASR on many models</span>
+              </div>
+            </div>
+
+            <p class="author-line">
+              Zhiheng Li, Zongyang Ma, Yuntong Pan, Ziqi Zhang, Xiaolei Lv, Bo Li, Jun Gao,
+              Jianing Zhang, Chunfeng Yuan, Bing Li, Weiming Hu
+            </p>
+          </div>
+
+          <div class="hero-visual">
+            <figure class="visual-frame hero-frame">
+              <img src="assets/teaser_asa_example.png" alt="A typical example of adversarial smuggling attacks">
+              <figcaption>
+                Harmful content can remain obvious to humans while staying difficult for MLLMs to
+                perceive or interpret correctly.
+              </figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="section abstract-section" id="abstract">
+          <div class="section-heading">
+            <p class="section-kicker">Overview</p>
+            <h2>Smuggling attacks exploit the human-AI gap instead of prompt jailbreaks or imperceptible noise.</h2>
+          </div>
+
+          <div class="abstract-grid">
+            <div class="text-card">
+              <p>
+                We identify <strong>Adversarial Smuggling Attacks (ASA)</strong>, a threat model in which harmful
+                content is encoded into visual forms that remain understandable to humans but difficult for
+                multimodal large language models to reliably detect. Rather than forcing models to output unsafe
+                responses, ASA bypasses moderation by making harmful intent visually elusive or semantically masked.
+              </p>
+              <p>
+                To study this problem, we introduce <strong>SmuggleBench</strong>, a benchmark spanning
+                <strong>1,700</strong> instances, <strong>2</strong> attack pathways, and <strong>9</strong>
+                techniques. Evaluations show that both proprietary and open-source MLLMs remain highly vulnerable.
+              </p>
+            </div>
+
+            <div class="insight-stack">
+              <article class="insight-card">
+                <h3>Perceptual Blindness</h3>
+                <p>Models fail before semantics even begin because the harmful text is not extracted reliably.</p>
+              </article>
+              <article class="insight-card">
+                <h3>Reasoning Blockade</h3>
+                <p>Models read the text but miss the malicious intent due to contextual camouflage or puzzle-like packaging.</p>
+              </article>
+              <article class="insight-card">
+                <h3>Practical Impact</h3>
+                <p>Current multimodal moderation pipelines can be bypassed by attacks that are visually natural to people.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="pathways">
+          <div class="section-heading">
+            <p class="section-kicker">Threat Model</p>
+            <h2>Two complementary pathways explain where multimodal moderation breaks.</h2>
+          </div>
+
+          <div class="pathway-grid">
+            <div class="visual-frame wide-frame">
+              <img src="assets/attack_pathways.png" alt="Two attack pathways of adversarial smuggling attacks">
+            </div>
+            <div class="pathway-text">
+              <article class="pathway-card">
+                <span class="pathway-index">Pathway I</span>
+                <h3>Perceptual Blindness</h3>
+                <p>
+                  The model fails to extract the harmful text from the image at the perception stage.
+                  Human readers can still recover the payload, but the moderation system remains visually blind.
+                </p>
+              </article>
+              <article class="pathway-card">
+                <span class="pathway-index">Pathway II</span>
+                <h3>Reasoning Blockade</h3>
+                <p>
+                  The text is extracted, yet the system misinterprets or overlooks its intent due to benign context,
+                  dense packaging, or puzzle-like presentation.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="benchmark">
+          <div class="section-heading">
+            <p class="section-kicker">Benchmark</p>
+            <h2>SmuggleBench organizes adversarial smuggling into a fine-grained evaluation taxonomy.</h2>
+          </div>
+
+          <div class="benchmark-layout">
+            <div class="visual-frame">
+              <img src="assets/taxonomy_and_stats.png" alt="Taxonomy discovery, data curation, and benchmark statistics">
+            </div>
+
+            <div class="taxonomy-panel">
+              <div class="taxonomy-block">
+                <h3>Perceptual Blindness</h3>
+                <ul>
+                  <li><strong>Tiny Text</strong><span>200</span></li>
+                  <li><strong>Occluded Text</strong><span>200</span></li>
+                  <li><strong>Low Contrast</strong><span>200</span></li>
+                  <li><strong>Handwritten Style</strong><span>200</span></li>
+                  <li><strong>Artistic / Distorted</strong><span>200</span></li>
+                  <li><strong>AI Illusions</strong><span>400</span></li>
+                </ul>
+              </div>
+
+              <div class="taxonomy-block">
+                <h3>Reasoning Blockade</h3>
+                <ul>
+                  <li><strong>Dense Text Masking</strong><span>100</span></li>
+                  <li><strong>Semantic Camouflage</strong><span>100</span></li>
+                  <li><strong>Visual Puzzles</strong><span>100</span></li>
+                </ul>
+              </div>
+
+              <div class="taxonomy-note">
+                <strong>Release note.</strong> The paper taxonomy has 9 techniques, while the public file layout
+                contains 10 storage subsets because <em>AI Illusions</em> is released as two source subsets.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="gallery">
+          <div class="section-heading">
+            <p class="section-kicker">Representative Cases</p>
+            <h2>Examples span weak visibility, visual clutter, and semantically disguised harmful content.</h2>
+          </div>
+
+          <div class="gallery-grid">
+            <figure class="visual-frame gallery-frame">
+              <img src="assets/cases/tiny_text_cases.png" alt="Tiny text cases">
+              <figcaption>Tiny Text</figcaption>
+            </figure>
+            <figure class="visual-frame gallery-frame">
+              <img src="assets/cases/occlusion_text_cases.png" alt="Occluded text cases">
+              <figcaption>Occluded Text</figcaption>
+            </figure>
+            <figure class="visual-frame gallery-frame">
+              <img src="assets/cases/artistic_distorted_cases.png" alt="Artistic distorted cases">
+              <figcaption>Artistic / Distorted</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="section resources-section" id="resources">
+          <div class="section-heading">
+            <p class="section-kicker">Resources</p>
+            <h2>Everything needed to read, reproduce, and evaluate.</h2>
+          </div>
+
+          <div class="resource-grid">
+            <a class="resource-card" href="https://arxiv.org/abs/2604.06950">
+              <span class="resource-label">Paper</span>
+              <h3>arXiv Preprint</h3>
+              <p>Read the full paper, results, and threat analysis.</p>
+            </a>
+            <a class="resource-card" href="https://huggingface.co/datasets/zhihengli-casia/smugglebench">
+              <span class="resource-label">Dataset</span>
+              <h3>Hugging Face Release</h3>
+              <p>Browse the released benchmark package and metadata.</p>
+            </a>
+            <a class="resource-card" href="https://github.com/zhihengli-casia/smugglebench">
+              <span class="resource-label">Code</span>
+              <h3>GitHub Repository</h3>
+              <p>Access evaluation scripts, annotation tooling, and documentation.</p>
+            </a>
+          </div>
+        </section>
+
+        <section class="section citation-section" id="citation">
+          <div class="section-heading">
+            <p class="section-kicker">Citation</p>
+            <h2>If SmuggleBench helps your work, please cite the arXiv version.</h2>
+          </div>
+
+          <div class="citation-box">
+            <button class="copy-button" type="button" data-copy-target="bibtex-block">Copy BibTeX</button>
+            <pre id="bibtex-block"><code>@article{li2026making,
+  title={Making MLLMs Blind: Adversarial Smuggling Attacks in MLLM Content Moderation},
+  author={Li, Zhiheng and Ma, Zongyang and Pan, Yuntong and Zhang, Ziqi and Lv, Xiaolei and Li, Bo and Gao, Jun and Zhang, Jianing and Yuan, Chunfeng and Li, Bing and Hu, Weiming},
+  journal={arXiv preprint arXiv:2604.06950},
+  year={2026}
+}</code></pre>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <p>SmuggleBench project page · Built for GitHub Pages</p>
+      </footer>
+    </div>
+
+    <script>
+      const copyButton = document.querySelector('[data-copy-target="bibtex-block"]');
+
+      if (copyButton) {
+        copyButton.addEventListener('click', async () => {
+          const target = document.getElementById(copyButton.dataset.copyTarget);
+
+          if (!target) return;
+
+          try {
+            await navigator.clipboard.writeText(target.innerText.trim());
+            copyButton.textContent = 'Copied';
+            window.setTimeout(() => {
+              copyButton.textContent = 'Copy BibTeX';
+            }, 1600);
+          } catch (error) {
+            copyButton.textContent = 'Copy failed';
+            window.setTimeout(() => {
+              copyButton.textContent = 'Copy BibTeX';
+            }, 1600);
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
