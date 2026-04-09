@@ -199,34 +199,35 @@
           </div>
 
           <div class="case-browser">
-            <div class="browser-toolbar">
-              <div class="category-tabs" id="category-tabs"></div>
-            </div>
+            <div class="category-tabs" id="category-tabs"></div>
 
-            <div class="browser-stage">
-              <button class="stage-arrow stage-arrow-left" type="button" id="prev-case" aria-label="Show previous case">
-                &#8249;
-              </button>
-
-              <div class="stage-frame">
-                <img id="case-image" src="" alt="">
+            <div class="showcase-shell">
+              <div class="showcase-copy">
+                <p class="showcase-overline" id="case-pathway"></p>
+                <h3 id="case-title"></h3>
+                <p class="showcase-description" id="case-description"></p>
+                <div class="showcase-meta">
+                  <span class="case-category-line" id="case-category"></span>
+                  <span class="case-counter-line" id="case-counter"></span>
+                </div>
               </div>
 
-              <button class="stage-arrow stage-arrow-right" type="button" id="next-case" aria-label="Show next case">
-                &#8250;
-              </button>
+              <div class="showcase-visual">
+                <button class="stage-arrow stage-arrow-left" type="button" id="prev-case" aria-label="Show previous case">
+                  &#8249;
+                </button>
+
+                <div class="stage-frame">
+                  <img id="case-image" src="" alt="">
+                </div>
+
+                <button class="stage-arrow stage-arrow-right" type="button" id="next-case" aria-label="Show next case">
+                  &#8250;
+                </button>
+              </div>
             </div>
 
             <div class="case-thumb-strip" id="case-thumb-strip"></div>
-
-            <div class="browser-footer">
-              <div class="browser-copy">
-                <p class="case-meta-line"><span id="case-pathway"></span><span class="meta-divider">/</span><span id="case-counter"></span></p>
-                <p class="case-category-line" id="case-category"></p>
-                <h3 id="case-title"></h3>
-                <p id="case-description"></p>
-              </div>
-            </div>
           </div>
         </section>
 
@@ -283,6 +284,7 @@
       const showcaseData = [
         {
           key: 'handwritten',
+          tabLabel: 'Handwritten',
           label: 'Handwritten Style',
           pathway: 'Perceptual Blindness',
           cases: [
@@ -300,6 +302,7 @@
         },
         {
           key: 'stylized',
+          tabLabel: 'Stylized',
           label: 'Stylized & Composed',
           pathway: 'Perceptual Blindness',
           cases: [
@@ -317,6 +320,7 @@
         },
         {
           key: 'low-contrast',
+          tabLabel: 'Low Contrast',
           label: 'Low Contrast Text',
           pathway: 'Perceptual Blindness',
           cases: [
@@ -334,6 +338,7 @@
         },
         {
           key: 'aigc',
+          tabLabel: 'AI Blended',
           label: 'AI Blended Background',
           pathway: 'AI Illusions',
           cases: [
@@ -351,6 +356,7 @@
         },
         {
           key: 'steganography',
+          tabLabel: 'Steganography',
           label: 'Textual Steganography',
           pathway: 'Reasoning Blockade',
           cases: [
@@ -368,6 +374,7 @@
         },
         {
           key: 'cryptic',
+          tabLabel: 'Cryptic',
           label: 'Cryptic Substitution',
           pathway: 'Reasoning Blockade',
           cases: [
@@ -418,7 +425,7 @@
               type="button"
               data-category-index="${index}"
             >
-              ${entry.label}
+              ${entry.tabLabel || entry.label}
             </button>
           `)
           .join('');
