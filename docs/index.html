@@ -228,6 +228,8 @@
               </button>
             </div>
 
+            <div class="case-thumb-strip" id="case-thumb-strip"></div>
+
             <div class="browser-footer">
               <div class="browser-copy">
                 <p class="browser-label" id="case-category"></p>
@@ -291,36 +293,36 @@
       const copyButton = document.querySelector('[data-copy-target="bibtex-block"]');
       const showcaseData = [
         {
-          key: 'miniature',
-          label: 'Miniature Text',
+          key: 'handwritten',
+          label: 'Handwritten Style',
           pathway: 'Perceptual Blindness',
           cases: [
             {
-              src: 'assets/showcase/miniature_01.jpg',
-              title: 'Mirror-side message',
-              description: 'A tiny harmful payload is tucked into the scene as a small, easy-to-miss detail that remains recoverable for humans.'
+              src: 'assets/showcase/handwritten_01.jpg',
+              title: 'Scribbled overlay',
+              description: 'Handwritten marks imitate casual doodles while still encoding the harmful payload in a human-readable way.'
             },
             {
-              src: 'assets/showcase/miniature_02.jpg',
-              title: 'Micro sticker payload',
-              description: 'The message becomes almost negligible at the pixel level, pushing the moderation model toward perceptual failure.'
+              src: 'assets/showcase/handwritten_02.jpg',
+              title: 'Document-like insertion',
+              description: 'The text resembles ordinary handwritten notes or posted documents, making extraction less stable for models.'
             }
           ]
         },
         {
-          key: 'occlusion',
-          label: 'Occlusion & Interference',
+          key: 'stylized',
+          label: 'Stylized & Composed',
           pathway: 'Perceptual Blindness',
           cases: [
             {
-              src: 'assets/showcase/occlusion_01.jpg',
-              title: 'Reflective wall embed',
-              description: 'Text is partially swallowed by reflection, clutter, and background structure while remaining legible to a person.'
+              src: 'assets/showcase/stylized_01.jpg',
+              title: '3D stylized lettering',
+              description: 'Aggressive typography and compositional effects make the payload visually striking for humans but harder to parse robustly.'
             },
             {
-              src: 'assets/showcase/occlusion_02.jpg',
-              title: 'Pose-and-clutter interference',
-              description: 'Foreground subjects and complex local texture interfere with robust text extraction.'
+              src: 'assets/showcase/stylized_02.jpg',
+              title: 'Composed numeric block',
+              description: 'Text behaves like part of the graphic design rather than a clear textual overlay.'
             }
           ]
         },
@@ -353,8 +355,8 @@
             },
             {
               src: 'assets/showcase/aigc_02.png',
-              title: 'Brushstroke field',
-              description: 'A synthesized pastoral scene blends characters into painterly texture and brush-like structure.'
+              title: 'Skyscraper embedding',
+              description: 'The payload is absorbed into the generated scene so it reads like part of the architecture itself.'
             }
           ]
         },
@@ -387,8 +389,8 @@
             },
             {
               src: 'assets/showcase/cryptic_02.jpg',
-              title: 'Short-code note',
-              description: 'A compact note looks harmless unless the hidden mapping or intended interpretation is recovered.'
+              title: 'Symbolic road sign',
+              description: 'The harmful message is transformed into symbolic visual substitutions that require human decoding.'
             }
           ]
         }
@@ -406,6 +408,7 @@
       const caseTitle = document.getElementById('case-title');
       const caseDescription = document.getElementById('case-description');
       const casePagination = document.getElementById('case-pagination');
+      const caseThumbStrip = document.getElementById('case-thumb-strip');
 
       let currentCategory = 0;
       let currentCase = 0;
@@ -445,6 +448,19 @@
           `)
           .join('');
 
+        caseThumbStrip.innerHTML = category.cases
+          .map((entry, index) => `
+            <button
+              class="thumb-card ${index === currentCase ? 'is-active' : ''}"
+              type="button"
+              aria-label="Show ${category.label} case ${index + 1}"
+              data-thumb-index="${index}"
+            >
+              <img src="${entry.src}" alt="${category.label} thumbnail ${index + 1}">
+            </button>
+          `)
+          .join('');
+
         categoryTabs.querySelectorAll('[data-category-index]').forEach((button) => {
           button.addEventListener('click', () => {
             currentCategory = Number(button.dataset.categoryIndex);
@@ -456,6 +472,13 @@
         casePagination.querySelectorAll('[data-case-index]').forEach((button) => {
           button.addEventListener('click', () => {
             currentCase = Number(button.dataset.caseIndex);
+            renderShowcase();
+          });
+        });
+
+        caseThumbStrip.querySelectorAll('[data-thumb-index]').forEach((button) => {
+          button.addEventListener('click', () => {
+            currentCase = Number(button.dataset.thumbIndex);
             renderShowcase();
           });
         });
