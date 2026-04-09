@@ -212,6 +212,81 @@
               <figcaption>Artistic / Distorted</figcaption>
             </figure>
           </div>
+
+          <div class="case-showcase">
+            <div class="showcase-heading">
+              <h3>Interactive Case Showcase</h3>
+              <p>Click any case to inspect it in more detail.</p>
+            </div>
+
+            <div class="showcase-grid">
+              <button
+                class="case-card"
+                type="button"
+                data-lightbox-image="assets/showcase/miniature_text.jpg"
+                data-lightbox-title="Miniature Text"
+                data-lightbox-caption="Perceptual Blindness · Harmful text shrinks into tiny visual details that humans can still notice."
+              >
+                <img src="assets/showcase/miniature_text.jpg" alt="Miniature text case">
+                <span class="case-meta"><strong>Miniature Text</strong><span>Perceptual Blindness</span></span>
+              </button>
+
+              <button
+                class="case-card"
+                type="button"
+                data-lightbox-image="assets/showcase/occlusion_interference.jpg"
+                data-lightbox-title="Occlusion & Interference"
+                data-lightbox-caption="Perceptual Blindness · Text is blended into clutter, stickers, or reflective interference."
+              >
+                <img src="assets/showcase/occlusion_interference.jpg" alt="Occlusion and interference case">
+                <span class="case-meta"><strong>Occlusion & Interference</strong><span>Perceptual Blindness</span></span>
+              </button>
+
+              <button
+                class="case-card"
+                type="button"
+                data-lightbox-image="assets/showcase/low_contrast.jpg"
+                data-lightbox-title="Low Contrast Text"
+                data-lightbox-caption="Perceptual Blindness · The payload remains present but sinks into a nearly invisible low-contrast surface."
+              >
+                <img src="assets/showcase/low_contrast.jpg" alt="Low contrast text case">
+                <span class="case-meta"><strong>Low Contrast Text</strong><span>Perceptual Blindness</span></span>
+              </button>
+
+              <button
+                class="case-card"
+                type="button"
+                data-lightbox-image="assets/showcase/aigc_blended.png"
+                data-lightbox-title="AI Blended Background"
+                data-lightbox-caption="AI Illusions · A generated scene carries harmful content as if it were part of the background itself."
+              >
+                <img src="assets/showcase/aigc_blended.png" alt="AIGC blended background case">
+                <span class="case-meta"><strong>AI Blended Background</strong><span>AI Illusions</span></span>
+              </button>
+
+              <button
+                class="case-card"
+                type="button"
+                data-lightbox-image="assets/showcase/textual_steganography.jpg"
+                data-lightbox-title="Textual Steganography"
+                data-lightbox-caption="Reasoning Blockade · Harmful intent is hidden within dense ordinary text that appears benign at first glance."
+              >
+                <img src="assets/showcase/textual_steganography.jpg" alt="Textual steganography case">
+                <span class="case-meta"><strong>Textual Steganography</strong><span>Reasoning Blockade</span></span>
+              </button>
+
+              <button
+                class="case-card"
+                type="button"
+                data-lightbox-image="assets/showcase/cryptic_substitution.jpg"
+                data-lightbox-title="Cryptic Substitution"
+                data-lightbox-caption="Reasoning Blockade · Symbols and visual substitutions obscure the malicious payload behind puzzle-like cues."
+              >
+                <img src="assets/showcase/cryptic_substitution.jpg" alt="Cryptic substitution case">
+                <span class="case-meta"><strong>Cryptic Substitution</strong><span>Reasoning Blockade</span></span>
+              </button>
+            </div>
+          </div>
         </section>
 
         <section class="section resources-section" id="resources">
@@ -262,8 +337,26 @@
       </footer>
     </div>
 
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+      <button class="lightbox-backdrop" type="button" aria-label="Close image viewer"></button>
+      <div class="lightbox-panel" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
+        <button class="lightbox-close" type="button" aria-label="Close image viewer">Close</button>
+        <img id="lightbox-image" src="" alt="">
+        <div class="lightbox-copy">
+          <h3 id="lightbox-title"></h3>
+          <p id="lightbox-caption"></p>
+        </div>
+      </div>
+    </div>
+
     <script>
       const copyButton = document.querySelector('[data-copy-target="bibtex-block"]');
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImage = document.getElementById('lightbox-image');
+      const lightboxTitle = document.getElementById('lightbox-title');
+      const lightboxCaption = document.getElementById('lightbox-caption');
+      const caseCards = document.querySelectorAll('.case-card');
+      const lightboxCloseButtons = document.querySelectorAll('.lightbox-close, .lightbox-backdrop');
 
       if (copyButton) {
         copyButton.addEventListener('click', async () => {
@@ -285,6 +378,34 @@
           }
         });
       }
+
+      caseCards.forEach((card) => {
+        card.addEventListener('click', () => {
+          lightboxImage.src = card.dataset.lightboxImage;
+          lightboxImage.alt = card.dataset.lightboxTitle;
+          lightboxTitle.textContent = card.dataset.lightboxTitle;
+          lightboxCaption.textContent = card.dataset.lightboxCaption;
+          lightbox.classList.add('is-open');
+          lightbox.setAttribute('aria-hidden', 'false');
+          document.body.classList.add('lightbox-open');
+        });
+      });
+
+      lightboxCloseButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          lightbox.classList.remove('is-open');
+          lightbox.setAttribute('aria-hidden', 'true');
+          document.body.classList.remove('lightbox-open');
+        });
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && lightbox.classList.contains('is-open')) {
+          lightbox.classList.remove('is-open');
+          lightbox.setAttribute('aria-hidden', 'true');
+          document.body.classList.remove('lightbox-open');
+        }
+      });
     </script>
   </body>
 </html>
