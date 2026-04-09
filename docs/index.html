@@ -198,93 +198,43 @@
             <h2>Examples span weak visibility, visual clutter, and semantically disguised harmful content.</h2>
           </div>
 
-          <div class="gallery-grid">
-            <figure class="visual-frame gallery-frame">
-              <img src="assets/cases/tiny_text_cases.png" alt="Tiny text cases">
-              <figcaption>Tiny Text</figcaption>
-            </figure>
-            <figure class="visual-frame gallery-frame">
-              <img src="assets/cases/occlusion_text_cases.png" alt="Occluded text cases">
-              <figcaption>Occluded Text</figcaption>
-            </figure>
-            <figure class="visual-frame gallery-frame">
-              <img src="assets/cases/artistic_distorted_cases.png" alt="Artistic distorted cases">
-              <figcaption>Artistic / Distorted</figcaption>
-            </figure>
-          </div>
-
-          <div class="case-showcase">
-            <div class="showcase-heading">
-              <h3>Interactive Case Showcase</h3>
-              <p>Click any case to inspect it in more detail.</p>
+          <div class="case-browser">
+            <div class="browser-toolbar">
+              <div>
+                <p class="browser-label">Switch Category</p>
+                <div class="category-tabs" id="category-tabs"></div>
+              </div>
+              <div class="browser-nav-group">
+                <button class="nav-chip" type="button" id="prev-category">Previous Category</button>
+                <button class="nav-chip" type="button" id="next-category">Next Category</button>
+              </div>
             </div>
 
-            <div class="showcase-grid">
-              <button
-                class="case-card"
-                type="button"
-                data-lightbox-image="assets/showcase/miniature_text.jpg"
-                data-lightbox-title="Miniature Text"
-                data-lightbox-caption="Perceptual Blindness · Harmful text shrinks into tiny visual details that humans can still notice."
-              >
-                <img src="assets/showcase/miniature_text.jpg" alt="Miniature text case">
-                <span class="case-meta"><strong>Miniature Text</strong><span>Perceptual Blindness</span></span>
+            <div class="browser-stage">
+              <button class="stage-arrow stage-arrow-left" type="button" id="prev-case" aria-label="Show previous case">
+                &#8249;
               </button>
 
-              <button
-                class="case-card"
-                type="button"
-                data-lightbox-image="assets/showcase/occlusion_interference.jpg"
-                data-lightbox-title="Occlusion & Interference"
-                data-lightbox-caption="Perceptual Blindness · Text is blended into clutter, stickers, or reflective interference."
-              >
-                <img src="assets/showcase/occlusion_interference.jpg" alt="Occlusion and interference case">
-                <span class="case-meta"><strong>Occlusion & Interference</strong><span>Perceptual Blindness</span></span>
-              </button>
+              <div class="stage-frame">
+                <div class="stage-meta">
+                  <span class="stage-pathway" id="case-pathway"></span>
+                  <span class="stage-counter" id="case-counter"></span>
+                </div>
+                <img id="case-image" src="" alt="">
+              </div>
 
-              <button
-                class="case-card"
-                type="button"
-                data-lightbox-image="assets/showcase/low_contrast.jpg"
-                data-lightbox-title="Low Contrast Text"
-                data-lightbox-caption="Perceptual Blindness · The payload remains present but sinks into a nearly invisible low-contrast surface."
-              >
-                <img src="assets/showcase/low_contrast.jpg" alt="Low contrast text case">
-                <span class="case-meta"><strong>Low Contrast Text</strong><span>Perceptual Blindness</span></span>
+              <button class="stage-arrow stage-arrow-right" type="button" id="next-case" aria-label="Show next case">
+                &#8250;
               </button>
+            </div>
 
-              <button
-                class="case-card"
-                type="button"
-                data-lightbox-image="assets/showcase/aigc_blended.png"
-                data-lightbox-title="AI Blended Background"
-                data-lightbox-caption="AI Illusions · A generated scene carries harmful content as if it were part of the background itself."
-              >
-                <img src="assets/showcase/aigc_blended.png" alt="AIGC blended background case">
-                <span class="case-meta"><strong>AI Blended Background</strong><span>AI Illusions</span></span>
-              </button>
-
-              <button
-                class="case-card"
-                type="button"
-                data-lightbox-image="assets/showcase/textual_steganography.jpg"
-                data-lightbox-title="Textual Steganography"
-                data-lightbox-caption="Reasoning Blockade · Harmful intent is hidden within dense ordinary text that appears benign at first glance."
-              >
-                <img src="assets/showcase/textual_steganography.jpg" alt="Textual steganography case">
-                <span class="case-meta"><strong>Textual Steganography</strong><span>Reasoning Blockade</span></span>
-              </button>
-
-              <button
-                class="case-card"
-                type="button"
-                data-lightbox-image="assets/showcase/cryptic_substitution.jpg"
-                data-lightbox-title="Cryptic Substitution"
-                data-lightbox-caption="Reasoning Blockade · Symbols and visual substitutions obscure the malicious payload behind puzzle-like cues."
-              >
-                <img src="assets/showcase/cryptic_substitution.jpg" alt="Cryptic substitution case">
-                <span class="case-meta"><strong>Cryptic Substitution</strong><span>Reasoning Blockade</span></span>
-              </button>
+            <div class="browser-footer">
+              <div class="browser-copy">
+                <p class="browser-label" id="case-category"></p>
+                <h3 id="case-title"></h3>
+                <p id="case-description"></p>
+              </div>
+              <div class="browser-pagination" id="case-pagination"></div>
             </div>
           </div>
         </section>
@@ -337,26 +287,179 @@
       </footer>
     </div>
 
-    <div class="lightbox" id="lightbox" aria-hidden="true">
-      <button class="lightbox-backdrop" type="button" aria-label="Close image viewer"></button>
-      <div class="lightbox-panel" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
-        <button class="lightbox-close" type="button" aria-label="Close image viewer">Close</button>
-        <img id="lightbox-image" src="" alt="">
-        <div class="lightbox-copy">
-          <h3 id="lightbox-title"></h3>
-          <p id="lightbox-caption"></p>
-        </div>
-      </div>
-    </div>
-
     <script>
       const copyButton = document.querySelector('[data-copy-target="bibtex-block"]');
-      const lightbox = document.getElementById('lightbox');
-      const lightboxImage = document.getElementById('lightbox-image');
-      const lightboxTitle = document.getElementById('lightbox-title');
-      const lightboxCaption = document.getElementById('lightbox-caption');
-      const caseCards = document.querySelectorAll('.case-card');
-      const lightboxCloseButtons = document.querySelectorAll('.lightbox-close, .lightbox-backdrop');
+      const showcaseData = [
+        {
+          key: 'miniature',
+          label: 'Miniature Text',
+          pathway: 'Perceptual Blindness',
+          cases: [
+            {
+              src: 'assets/showcase/miniature_01.jpg',
+              title: 'Mirror-side message',
+              description: 'A tiny harmful payload is tucked into the scene as a small, easy-to-miss detail that remains recoverable for humans.'
+            },
+            {
+              src: 'assets/showcase/miniature_02.jpg',
+              title: 'Micro sticker payload',
+              description: 'The message becomes almost negligible at the pixel level, pushing the moderation model toward perceptual failure.'
+            }
+          ]
+        },
+        {
+          key: 'occlusion',
+          label: 'Occlusion & Interference',
+          pathway: 'Perceptual Blindness',
+          cases: [
+            {
+              src: 'assets/showcase/occlusion_01.jpg',
+              title: 'Reflective wall embed',
+              description: 'Text is partially swallowed by reflection, clutter, and background structure while remaining legible to a person.'
+            },
+            {
+              src: 'assets/showcase/occlusion_02.jpg',
+              title: 'Pose-and-clutter interference',
+              description: 'Foreground subjects and complex local texture interfere with robust text extraction.'
+            }
+          ]
+        },
+        {
+          key: 'low-contrast',
+          label: 'Low Contrast Text',
+          pathway: 'Perceptual Blindness',
+          cases: [
+            {
+              src: 'assets/showcase/low_contrast_01.jpg',
+              title: 'Holographic wash',
+              description: 'The text survives as a faint tonal trace on a glossy surface, visible to people but fragile for machine perception.'
+            },
+            {
+              src: 'assets/showcase/low_contrast_02.jpg',
+              title: 'Gradient fade',
+              description: 'The payload dissolves into a color field with extremely weak local contrast.'
+            }
+          ]
+        },
+        {
+          key: 'aigc',
+          label: 'AI Blended Background',
+          pathway: 'AI Illusions',
+          cases: [
+            {
+              src: 'assets/showcase/aigc_01.png',
+              title: 'Forest glyph scene',
+              description: 'Generative imagery makes the harmful text feel like part of the natural environment rather than an inserted overlay.'
+            },
+            {
+              src: 'assets/showcase/aigc_02.png',
+              title: 'Brushstroke field',
+              description: 'A synthesized pastoral scene blends characters into painterly texture and brush-like structure.'
+            }
+          ]
+        },
+        {
+          key: 'steganography',
+          label: 'Textual Steganography',
+          pathway: 'Reasoning Blockade',
+          cases: [
+            {
+              src: 'assets/showcase/steganography_01.jpg',
+              title: 'Dense passage embed',
+              description: 'The malicious content is hidden inside a large block of otherwise ordinary writing, encouraging semantic oversight.'
+            },
+            {
+              src: 'assets/showcase/steganography_02.jpg',
+              title: 'Worksheet camouflage',
+              description: 'Educational-looking formatting helps the harmful signal blend into a benign document context.'
+            }
+          ]
+        },
+        {
+          key: 'cryptic',
+          label: 'Cryptic Substitution',
+          pathway: 'Reasoning Blockade',
+          cases: [
+            {
+              src: 'assets/showcase/cryptic_01.jpg',
+              title: 'Road-marking substitution',
+              description: 'Symbolic and stylized substitutions hide the intent behind a visual puzzle rather than explicit surface text.'
+            },
+            {
+              src: 'assets/showcase/cryptic_02.jpg',
+              title: 'Short-code note',
+              description: 'A compact note looks harmless unless the hidden mapping or intended interpretation is recovered.'
+            }
+          ]
+        }
+      ];
+
+      const categoryTabs = document.getElementById('category-tabs');
+      const prevCategoryButton = document.getElementById('prev-category');
+      const nextCategoryButton = document.getElementById('next-category');
+      const prevCaseButton = document.getElementById('prev-case');
+      const nextCaseButton = document.getElementById('next-case');
+      const caseImage = document.getElementById('case-image');
+      const casePathway = document.getElementById('case-pathway');
+      const caseCounter = document.getElementById('case-counter');
+      const caseCategory = document.getElementById('case-category');
+      const caseTitle = document.getElementById('case-title');
+      const caseDescription = document.getElementById('case-description');
+      const casePagination = document.getElementById('case-pagination');
+
+      let currentCategory = 0;
+      let currentCase = 0;
+
+      const renderShowcase = () => {
+        const category = showcaseData[currentCategory];
+        const item = category.cases[currentCase];
+
+        caseImage.src = item.src;
+        caseImage.alt = `${category.label} case`;
+        casePathway.textContent = category.pathway;
+        caseCounter.textContent = `Case ${currentCase + 1} / ${category.cases.length}`;
+        caseCategory.textContent = category.label;
+        caseTitle.textContent = item.title;
+        caseDescription.textContent = item.description;
+
+        categoryTabs.innerHTML = showcaseData
+          .map((entry, index) => `
+            <button
+              class="category-tab ${index === currentCategory ? 'is-active' : ''}"
+              type="button"
+              data-category-index="${index}"
+            >
+              ${entry.label}
+            </button>
+          `)
+          .join('');
+
+        casePagination.innerHTML = category.cases
+          .map((_, index) => `
+            <button
+              class="pagination-dot ${index === currentCase ? 'is-active' : ''}"
+              type="button"
+              aria-label="Show case ${index + 1}"
+              data-case-index="${index}"
+            ></button>
+          `)
+          .join('');
+
+        categoryTabs.querySelectorAll('[data-category-index]').forEach((button) => {
+          button.addEventListener('click', () => {
+            currentCategory = Number(button.dataset.categoryIndex);
+            currentCase = 0;
+            renderShowcase();
+          });
+        });
+
+        casePagination.querySelectorAll('[data-case-index]').forEach((button) => {
+          button.addEventListener('click', () => {
+            currentCase = Number(button.dataset.caseIndex);
+            renderShowcase();
+          });
+        });
+      };
 
       if (copyButton) {
         copyButton.addEventListener('click', async () => {
@@ -379,33 +482,31 @@
         });
       }
 
-      caseCards.forEach((card) => {
-        card.addEventListener('click', () => {
-          lightboxImage.src = card.dataset.lightboxImage;
-          lightboxImage.alt = card.dataset.lightboxTitle;
-          lightboxTitle.textContent = card.dataset.lightboxTitle;
-          lightboxCaption.textContent = card.dataset.lightboxCaption;
-          lightbox.classList.add('is-open');
-          lightbox.setAttribute('aria-hidden', 'false');
-          document.body.classList.add('lightbox-open');
-        });
+      prevCategoryButton.addEventListener('click', () => {
+        currentCategory = (currentCategory - 1 + showcaseData.length) % showcaseData.length;
+        currentCase = 0;
+        renderShowcase();
       });
 
-      lightboxCloseButtons.forEach((button) => {
-        button.addEventListener('click', () => {
-          lightbox.classList.remove('is-open');
-          lightbox.setAttribute('aria-hidden', 'true');
-          document.body.classList.remove('lightbox-open');
-        });
+      nextCategoryButton.addEventListener('click', () => {
+        currentCategory = (currentCategory + 1) % showcaseData.length;
+        currentCase = 0;
+        renderShowcase();
       });
 
-      document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && lightbox.classList.contains('is-open')) {
-          lightbox.classList.remove('is-open');
-          lightbox.setAttribute('aria-hidden', 'true');
-          document.body.classList.remove('lightbox-open');
-        }
+      prevCaseButton.addEventListener('click', () => {
+        const category = showcaseData[currentCategory];
+        currentCase = (currentCase - 1 + category.cases.length) % category.cases.length;
+        renderShowcase();
       });
+
+      nextCaseButton.addEventListener('click', () => {
+        const category = showcaseData[currentCategory];
+        currentCase = (currentCase + 1) % category.cases.length;
+        renderShowcase();
+      });
+
+      renderShowcase();
     </script>
   </body>
 </html>
