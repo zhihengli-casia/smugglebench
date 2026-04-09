@@ -200,14 +200,7 @@
 
           <div class="case-browser">
             <div class="browser-toolbar">
-              <div>
-                <p class="browser-label">Switch Category</p>
-                <div class="category-tabs" id="category-tabs"></div>
-              </div>
-              <div class="browser-nav-group">
-                <button class="nav-chip" type="button" id="prev-category">Previous Category</button>
-                <button class="nav-chip" type="button" id="next-category">Next Category</button>
-              </div>
+              <div class="category-tabs" id="category-tabs"></div>
             </div>
 
             <div class="browser-stage">
@@ -216,10 +209,6 @@
               </button>
 
               <div class="stage-frame">
-                <div class="stage-meta">
-                  <span class="stage-pathway" id="case-pathway"></span>
-                  <span class="stage-counter" id="case-counter"></span>
-                </div>
                 <img id="case-image" src="" alt="">
               </div>
 
@@ -232,11 +221,11 @@
 
             <div class="browser-footer">
               <div class="browser-copy">
-                <p class="browser-label" id="case-category"></p>
+                <p class="case-meta-line"><span id="case-pathway"></span><span class="meta-divider">/</span><span id="case-counter"></span></p>
+                <p class="case-category-line" id="case-category"></p>
                 <h3 id="case-title"></h3>
                 <p id="case-description"></p>
               </div>
-              <div class="browser-pagination" id="case-pagination"></div>
             </div>
           </div>
         </section>
@@ -397,8 +386,6 @@
       ];
 
       const categoryTabs = document.getElementById('category-tabs');
-      const prevCategoryButton = document.getElementById('prev-category');
-      const nextCategoryButton = document.getElementById('next-category');
       const prevCaseButton = document.getElementById('prev-case');
       const nextCaseButton = document.getElementById('next-case');
       const caseImage = document.getElementById('case-image');
@@ -407,7 +394,6 @@
       const caseCategory = document.getElementById('case-category');
       const caseTitle = document.getElementById('case-title');
       const caseDescription = document.getElementById('case-description');
-      const casePagination = document.getElementById('case-pagination');
       const caseThumbStrip = document.getElementById('case-thumb-strip');
 
       let currentCategory = 0;
@@ -420,7 +406,7 @@
         caseImage.src = item.src;
         caseImage.alt = `${category.label} case`;
         casePathway.textContent = category.pathway;
-        caseCounter.textContent = `Case ${currentCase + 1} / ${category.cases.length}`;
+        caseCounter.textContent = `${currentCase + 1} of ${category.cases.length}`;
         caseCategory.textContent = category.label;
         caseTitle.textContent = item.title;
         caseDescription.textContent = item.description;
@@ -434,17 +420,6 @@
             >
               ${entry.label}
             </button>
-          `)
-          .join('');
-
-        casePagination.innerHTML = category.cases
-          .map((_, index) => `
-            <button
-              class="pagination-dot ${index === currentCase ? 'is-active' : ''}"
-              type="button"
-              aria-label="Show case ${index + 1}"
-              data-case-index="${index}"
-            ></button>
           `)
           .join('');
 
@@ -465,13 +440,6 @@
           button.addEventListener('click', () => {
             currentCategory = Number(button.dataset.categoryIndex);
             currentCase = 0;
-            renderShowcase();
-          });
-        });
-
-        casePagination.querySelectorAll('[data-case-index]').forEach((button) => {
-          button.addEventListener('click', () => {
-            currentCase = Number(button.dataset.caseIndex);
             renderShowcase();
           });
         });
@@ -504,18 +472,6 @@
           }
         });
       }
-
-      prevCategoryButton.addEventListener('click', () => {
-        currentCategory = (currentCategory - 1 + showcaseData.length) % showcaseData.length;
-        currentCase = 0;
-        renderShowcase();
-      });
-
-      nextCategoryButton.addEventListener('click', () => {
-        currentCategory = (currentCategory + 1) % showcaseData.length;
-        currentCase = 0;
-        renderShowcase();
-      });
 
       prevCaseButton.addEventListener('click', () => {
         const category = showcaseData[currentCategory];
