@@ -2,11 +2,14 @@
 
 <h1>Making MLLMs Blind: Adversarial Smuggling Attacks in MLLM Content Moderation</h1>
 
-**ACL 2026**
+**ACL 2026 · arXiv:2604.06950**
 
 Zhiheng Li, Zongyang Ma, Yuntong Pan, Ziqi Zhang, Xiaolei Lv, Bo Li, Jun Gao, Jianing Zhang, Chunfeng Yuan, Bing Li, Weiming Hu
 
 <p>
+  <a href="https://arxiv.org/abs/2604.06950">
+    <img src="https://img.shields.io/badge/arXiv-2604.06950-B31B1B?logo=arxiv&logoColor=white" alt="arXiv paper" />
+  </a>
   <a href="https://huggingface.co/datasets/zhihengli-casia/smugglebench">
     <img src="https://img.shields.io/badge/Hugging%20Face-Dataset-F59E0B?logo=huggingface&logoColor=white" alt="Hugging Face dataset" />
   </a>
@@ -16,14 +19,16 @@ Zhiheng Li, Zongyang Ma, Yuntong Pan, Ziqi Zhang, Xiaolei Lv, Bo Li, Jun Gao, Ji
 </p>
 
 <p>
-  Official code and benchmark release for our ACL 2026 paper on adversarial smuggling attacks against multimodal content moderation.
+  Official code and benchmark release for our ACL 2026 paper and arXiv preprint on adversarial smuggling attacks against multimodal content moderation.
 </p>
 
 <p>
   <a href="README_CN.md">简体中文</a> |
+  <a href="https://arxiv.org/abs/2604.06950">arXiv</a> |
   <a href="https://huggingface.co/datasets/zhihengli-casia/smugglebench">Hugging Face</a> |
   <a href="#overview">Overview</a> |
   <a href="#release-contents">Code</a> |
+  <a href="#citation">Citation</a> |
   <a href="#license">License</a>
 </p>
 
@@ -114,6 +119,10 @@ The full image release is available on Hugging Face:
 
 - [SMUGGLEBENCH on Hugging Face](https://huggingface.co/datasets/zhihengli-casia/smugglebench)
 
+The paper is available on arXiv:
+
+- [Making MLLMs Blind: Adversarial Smuggling Attacks in MLLM Content Moderation](https://arxiv.org/abs/2604.06950)
+
 ## Quick Start
 
 ```bash
@@ -123,6 +132,21 @@ pip install -r requirements.txt
 ```
 
 If you have access to the released images, place them under `images/` using the relative paths referenced in the annotations.
+
+## Citation
+
+If you find this project useful, please cite the arXiv version:
+
+```bibtex
+@article{li2026making,
+  title={Making MLLMs Blind: Adversarial Smuggling Attacks in MLLM Content Moderation},
+  author={Li, Zhiheng and Ma, Zongyang and Pan, Yuntong and Zhang, Ziqi and Lv, Xiaolei and Li, Bo and Gao, Jun and Zhang, Jianing and Yuan, Chunfeng and Li, Bing and Hu, Weiming},
+  journal={arXiv preprint arXiv:2604.06950},
+  year={2026}
+}
+```
+
+GitHub citation metadata is also available in [CITATION.cff](CITATION.cff).
 
 ## License
 

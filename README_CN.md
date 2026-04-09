@@ -2,11 +2,14 @@
 
 <h1>Making MLLMs Blind: Adversarial Smuggling Attacks in MLLM Content Moderation</h1>
 
-**ACL 2026**
+**ACL 2026 · arXiv:2604.06950**
 
 Zhiheng Li, Zongyang Ma, Yuntong Pan, Ziqi Zhang, Xiaolei Lv, Bo Li, Jun Gao, Jianing Zhang, Chunfeng Yuan, Bing Li, Weiming Hu
 
 <p>
+  <a href="https://arxiv.org/abs/2604.06950">
+    <img src="https://img.shields.io/badge/arXiv-2604.06950-B31B1B?logo=arxiv&logoColor=white" alt="arXiv paper" />
+  </a>
   <a href="https://huggingface.co/datasets/zhihengli-casia/smugglebench">
     <img src="https://img.shields.io/badge/Hugging%20Face-Dataset-F59E0B?logo=huggingface&logoColor=white" alt="Hugging Face dataset" />
   </a>
@@ -16,14 +19,16 @@ Zhiheng Li, Zongyang Ma, Yuntong Pan, Ziqi Zhang, Xiaolei Lv, Bo Li, Jun Gao, Ji
 </p>
 
 <p>
-  本仓库是 ACL 2026 论文 <strong>Making MLLMs Blind: Adversarial Smuggling Attacks in MLLM Content Moderation</strong> 的官方代码与基准发布页。
+  本仓库是 ACL 2026 论文与 arXiv 预印本 <strong>Making MLLMs Blind: Adversarial Smuggling Attacks in MLLM Content Moderation</strong> 的官方代码与基准发布页。
 </p>
 
 <p>
   <a href="README.md">English</a> |
+  <a href="https://arxiv.org/abs/2604.06950">arXiv</a> |
   <a href="https://huggingface.co/datasets/zhihengli-casia/smugglebench">Hugging Face</a> |
   <a href="#概述">概述</a> |
   <a href="#仓库内容">代码</a> |
+  <a href="#引用">引用</a> |
   <a href="#许可证">许可证</a>
 </p>
 
@@ -114,6 +119,10 @@ ASA 主要通过两种方式破坏多模态内容审核：
 
 - [SMUGGLEBENCH on Hugging Face](https://huggingface.co/datasets/zhihengli-casia/smugglebench)
 
+论文预印本已发布在 arXiv：
+
+- [Making MLLMs Blind: Adversarial Smuggling Attacks in MLLM Content Moderation](https://arxiv.org/abs/2604.06950)
+
 ## 快速开始
 
 ```bash
@@ -123,6 +132,21 @@ pip install -r requirements.txt
 ```
 
 如果你拥有公开发布的图片数据，请按照标注文件中的相对路径，将图片放置到 `images/` 目录下。
+
+## 引用
+
+如果这个项目对你的研究有帮助，建议引用 arXiv 版本：
+
+```bibtex
+@article{li2026making,
+  title={Making MLLMs Blind: Adversarial Smuggling Attacks in MLLM Content Moderation},
+  author={Li, Zhiheng and Ma, Zongyang and Pan, Yuntong and Zhang, Ziqi and Lv, Xiaolei and Li, Bo and Gao, Jun and Zhang, Jianing and Yuan, Chunfeng and Li, Bing and Hu, Weiming},
+  journal={arXiv preprint arXiv:2604.06950},
+  year={2026}
+}
+```
+
+GitHub 侧的引用元数据也已同步更新到 [CITATION.cff](CITATION.cff)。
 
 ## 许可证
 
