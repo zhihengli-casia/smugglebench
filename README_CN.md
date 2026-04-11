@@ -10,13 +10,13 @@ Zhiheng Li, Zongyang Ma, Yuntong Pan, Ziqi Zhang, Xiaolei Lv, Bo Li, Jun Gao, Ji
   <a href="https://arxiv.org/abs/2604.06950">
     <img src="https://img.shields.io/badge/arXiv-2604.06950-B31B1B?logo=arxiv&logoColor=white" alt="arXiv paper" />
   </a>
-  <a href="https://zhihengli-casia.github.io/smugglebench/">
+  <a href="https://zhihengli-casia.github.io/Smugglebench/">
     <img src="https://img.shields.io/badge/Project-Page-0F766E?logo=googlechrome&logoColor=white" alt="Project page" />
   </a>
   <a href="https://huggingface.co/datasets/zhihengli-casia/smugglebench">
     <img src="https://img.shields.io/badge/Hugging%20Face-Dataset-F59E0B?logo=huggingface&logoColor=white" alt="Hugging Face dataset" />
   </a>
-  <a href="https://github.com/zhihengli-casia/smugglebench">
+  <a href="https://github.com/zhihengli-casia/Smugglebench">
     <img src="https://img.shields.io/badge/GitHub-Code%20%26%20README-111827?logo=github&logoColor=white" alt="GitHub repository" />
   </a>
 </p>
@@ -28,7 +28,7 @@ Zhiheng Li, Zongyang Ma, Yuntong Pan, Ziqi Zhang, Xiaolei Lv, Bo Li, Jun Gao, Ji
 <p>
   <a href="README.md">English</a> |
   <a href="https://arxiv.org/abs/2604.06950">arXiv</a> |
-  <a href="https://zhihengli-casia.github.io/smugglebench/">Project Page</a> |
+  <a href="https://zhihengli-casia.github.io/Smugglebench/">Project Page</a> |
   <a href="https://huggingface.co/datasets/zhihengli-casia/smugglebench">Hugging Face</a> |
   <a href="#概述">概述</a> |
   <a href="#仓库内容">代码</a> |
